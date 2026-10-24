@@ -19,7 +19,7 @@ i samma PR. Poster under "Väntar på beslut" kräver svar från Anders först.
       med svenska/engelska datumformat. Fungerar statiskt, inget API.
 - [ ] **Bildgalleri**: `site/img/` med `<picture>`/`loading="lazy"`, alt-texter på båda språken.
       Kräver att Anders lägger in bilder — bygg strukturen med platshållare först.
-- [ ] **404-sida** på båda språken, med länk tillbaka (Netlify serverar `404.html` automatiskt).
+- [x] **404-sida** på båda språken, med länk tillbaka (Netlify serverar `404.html` automatiskt).
 - [ ] **Språkval i URL:en**: `?lang=en` finns, men överväg `/en/` så länkar går att dela.
 - [ ] **Tillgänglighetsgenomgång**: fokusordning, kontrast, `prefers-reduced-motion`,
       skärmläsartest av språkväxlaren (den ska meddela byte, inte bara byta text).
