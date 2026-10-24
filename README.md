@@ -44,6 +44,16 @@ Bieffekt: **byts lösenordet loggas alla ut** — den gamla cookien slutar gäll
 
 Nycklarna `page.title` och `page.description` styr flikens titel och beskrivningen.
 
+## Bilder
+
+Bilderna ligger i `site/img/` (mappen finns, tom så länge). Säg till nanobot vilka filer
+som hör ihop — t.ex. "dessa tre är från Gotland" — så byggs galleriet och alt-texterna
+skrivs på båda språken.
+
+- Filnamn: gemener och bindestreck, inga å/ä/ö eller mellanslag (`sommar-2026-01.jpg`)
+- Max ~1600 px på längsta sidan räcker, då laddar sidan snabbt
+- En bild per motiv — kollage blir svåra att beskriva
+
 ## Förhandsgranska lokalt
 
 ```
@@ -97,7 +107,10 @@ node scripts\test_auth.mjs       # inloggning + grind, 25 tester
 ## Webmaster
 
 `ROADMAP.md` är backloggen. Webmastern (skill: `skills/webmaster/SKILL.md`) tar en post
-per körning, kör kontrollerna och öppnar en PR — den mergar aldrig själv.
+per körning, kör kontrollerna och öppnar en PR mot `main` — den mergar aldrig själv.
+
+Allt arbete sker i `main`; webmastern gör sina ändringar på `webmaster/<kort-namn>`
+och lämnar dem som PR för granskning.
 
 ```
 python scripts\webmaster_status.py     # branch, kontroller, nästa poster

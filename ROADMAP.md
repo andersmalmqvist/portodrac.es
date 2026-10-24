@@ -5,7 +5,7 @@ i samma PR. Poster under "Väntar på beslut" kräver svar från Anders först.
 
 ## Väntar på beslut
 
-- [ ] Ska `feature/first-page` mergas till `main`? (Netlify produktionsbranch = `main`)
+- [x] Allt ligger i `main`, som är Netlify:s produktionsbranch.
 - [ ] Vilket lösenord ska familjen ha? (sätts som `SITE_PASSWORD` i Netlify, aldrig i repot)
 - [ ] Ska domänen `portodrac.es` kopplas till Netlify, och vem äger DNS:en?
 - [ ] Vad ska sidan heta och innehålla? Familjemedlemmar, kalender, bilder, länkar?
@@ -18,7 +18,7 @@ i samma PR. Poster under "Väntar på beslut" kräver svar från Anders först.
 - [ ] **Kalender utan backend**: `site/data/calendar.json` + rendering i `main.js`,
       med svenska/engelska datumformat. Fungerar statiskt, inget API.
 - [ ] **Bildgalleri**: `site/img/` med `<picture>`/`loading="lazy"`, alt-texter på båda språken.
-      Kräver att Anders lägger in bilder — bygg strukturen med platshållare först.
+      Mappen finns med `.gitkeep`; strukturen är klar att fylla på.
 - [x] **404-sida** på båda språken, med länk tillbaka (Netlify serverar `404.html` automatiskt).
 - [ ] **Språkval i URL:en**: `?lang=en` finns, men överväg `/en/` så länkar går att dela.
 - [ ] **Tillgänglighetsgenomgång**: fokusordning, kontrast, `prefers-reduced-motion`,
