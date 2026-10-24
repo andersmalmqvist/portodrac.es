@@ -12,6 +12,8 @@ i samma PR. Poster under "Väntar på beslut" kräver svar från Anders först.
       foton finns i `site/img/`. Tills dess: rör inte galleriet.
 - [ ] Vad ska sidan heta och innehålla? Familjemedlemmar, kalender, bilder, länkar?
 - [ ] Ett delat lösenord nu, eller separata konton (Netlify Identity / Cloudflare Access)?
+- [ ] **"Kom ihåg mig" på inloggningen?** Cookien gäller redan 30 dagar, så en kryssruta skulle
+      i så fall ge en *kortare* session. Behöver beslut om hur länge en kort session ska gälla.
 
 ## Kan göras själv
 
@@ -25,8 +27,14 @@ i samma PR. Poster under "Väntar på beslut" kräver svar från Anders först.
 - [ ] **Språkval i URL:en**: `?lang=en` finns, men överväg `/en/` så länkar går att dela.
 - [ ] **Tillgänglighetsgenomgång**: fokusordning, kontrast, `prefers-reduced-motion`,
       skärmläsartest av språkväxlaren (den ska meddela byte, inte bara byta text).
-- [ ] **Tydligare inloggningssida**: "kom ihåg mig", visa/dölj lösenord, och en rad om
-      vem man kontaktar om lösenordet glömts.
+- [x] **Tydligare inloggningssida** (PR `webmaster/tydligare-login`): visa/dölj lösenord,
+      Caps Lock-varning, rad om glömt lösenord, och felrutan kopplad till fältet
+      (`aria-invalid` + `aria-describedby`). Kvar: "kom ihåg mig" — se "Väntar på beslut".
+- [ ] **Startsidans kort lovar mer än de håller**: "Kalender" och "Bilder" innehåller bara en
+      platshållare och går inte att klicka på. Antingen döljs de tills innehåll finns, eller så
+      får de en rad om vad som händer härnäst. Kräver att Anders väljer vilket.
+- [ ] **Språkväxlaren meddelar inte bytet** för skärmläsare — hör ihop med
+      tillgänglighetsposten ovan: en `aria-live`-rad som säger "Svenska"/"Engelska".
 - [ ] **Rate limiting** på `/.netlify/functions/login` (Netlify Security → Rate limiting)
       — dokumentera inställningen i README när den är på.
 - [ ] **`site/icons/`**: favicon + apple-touch-icon så fliken inte är tom.
