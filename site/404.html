@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sidan finns inte — Portodrac</title>
+  <style>
+    :root {
+      --bg: #fbf7f2;
+      --surface: #ffffff;
+      --text: #24201c;
+      --muted: #6b6259;
+      --accent: #a3452b;
+      --border: #e6ddd4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #17130f;
+        --surface: #211b16;
+        --text: #f2ebe4;
+        --muted: #b0a49a;
+        --accent: #e98a63;
+        --border: #342b24;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 30rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 18px 40px -32px rgba(0, 0, 0, 0.5);
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      letter-spacing: -0.015em;
+    }
+
+    p { margin: 0 0 0.75rem; color: var(--muted); }
+
+    p.en {
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.1rem;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a.button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .footer {
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="mark" aria-hidden="true">P</p>
+    <h1>Sidan finns inte</h1>
+    <p>Adressen stämmer inte, eller så har sidan flyttats. Gå tillbaka till startsidan så hittar du rätt.</p>
+    <p class="en">This page doesn't exist — the address may be wrong or the page may have moved. Head back to the start page.</p>
+    <a class="button" href="/">Till startsidan / Back to start</a>
+    <p class="footer">Portodrac — privat familjesida / private family page</p>
+  </main>
+</body>
+</html>

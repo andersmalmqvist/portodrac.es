@@ -1,0 +1,18 @@
+[build]
+  publish = "site"
+  functions = "netlify/functions"
+
+# Edge-funktionerna ligger i netlify/edge-functions och hittas automatiskt.
+# De publiceras aldrig, eftersom publish pekar på site/.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-store"
