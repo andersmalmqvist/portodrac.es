@@ -13,9 +13,6 @@ window.TRANSLATIONS = {
     "calendar.title": "Kalender",
     "calendar.text": "Här kan vi samla födelsedagar, resor och annat som är på gång.",
     "calendar.placeholder": "Inget inlagt än.",
-    "photos.title": "Bilder",
-    "photos.text": "Här kan vi samla bilder från resor och träffar.",
-    "photos.placeholder": "Inga bilder än.",
     "footer.text": "Portodrac — en privat familjesida."
   },
   "en": {
@@ -31,9 +28,6 @@ window.TRANSLATIONS = {
     "calendar.title": "Calendar",
     "calendar.text": "A place to collect birthdays, trips and whatever is coming up.",
     "calendar.placeholder": "Nothing added yet.",
-    "photos.title": "Photos",
-    "photos.text": "A place to collect pictures from trips and get-togethers.",
-    "photos.placeholder": "No photos yet.",
     "footer.text": "Portodrac — a private family page."
   }
 };
