@@ -1,0 +1,5 @@
+# Netlify CLI:s lokala koppling (innehåller projekt-id, inte hemligheter)
+.netlify/
+
+# Tillfälliga filer vid commit
+.commitmsg
