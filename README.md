@@ -46,13 +46,12 @@ Nycklarna `page.title` och `page.description` styr flikens titel och beskrivning
 
 ## Bilder
 
-Bilderna ligger i `site/img/` (mappen finns, tom så länge). Säg till nanobot vilka filer
-som hör ihop — t.ex. "dessa tre är från Gotland" — så byggs galleriet och alt-texterna
-skrivs på båda språken.
+**Inga bilder publiceras.** Beslut 2026-10-24: fotona stannar lokalt hos familjen, även om
+sajten ligger bakom lösenord. `site/img/` är tom och något galleri byggs inte — lägg inte
+in foton där och bygg ingen bilddel på sajten.
 
-- Filnamn: gemener och bindestreck, inga å/ä/ö eller mellanslag (`sommar-2026-01.jpg`)
-- Max ~1600 px på längsta sidan räcker, då laddar sidan snabbt
-- En bild per motiv — kollage blir svåra att beskriva
+Om beslutet någon gång ändras gäller: gemener och bindestreck i filnamn, inga å/ä/ö eller
+mellanslag (`sommar-2026-01.jpg`), max ~1600 px på längsta sidan och en bild per motiv.
 
 ## Förhandsgranska lokalt
 
