@@ -31,8 +31,9 @@ i samma PR. Poster under "Väntar på beslut" kräver svar från Anders först.
       — dokumentera inställningen i README när den är på.
 - [ ] **`site/icons/`**: favicon + apple-touch-icon så fliken inte är tom.
 - [ ] **Utloggning**: liten länk som rensar cookien (`/logga-ut` → `Set-Cookie: Max-Age=0`).
-- [ ] **Egen kontroll av live-sajten**: när domänen är kopplad, verifiera att `/` ger 302
-      till `/login` och att inloggning fungerar, och skriv det i rapporten.
+- [x] **Egen kontroll av live-sajten**: `python scripts/test_live.py` verifierar att `/` ger 302
+      till `/login` och att inloggning fungerar. Körd mot https://portodrac.netlify.app — 11 gröna.
+      Kvar: samma koll när portodrac.es är kopplad.
 
 ## Tekniska skulder
 
