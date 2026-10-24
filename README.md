@@ -93,3 +93,12 @@ node scripts\test_auth.mjs       # inloggning + grind, 25 tester
 - [ ] Riktigt innehåll (namn, kalender, bilder)
 - [ ] Koppla domänen portodrac.es
 - [ ] Bestämma om vi vill ha separata konton i stället för ett delat lösenord
+
+## Webmaster
+
+`ROADMAP.md` är backloggen. Webmastern (skill: `skills/webmaster/SKILL.md`) tar en post
+per körning, kör kontrollerna och öppnar en PR — den mergar aldrig själv.
+
+```
+python scripts\webmaster_status.py     # branch, kontroller, nästa poster
+```
