@@ -73,7 +73,11 @@ $env:SITE_PASSWORD="testlosen"; python scripts\serve.py
 ```
 python scripts\check_site.py     # texter, filer och Netlify-konfigurationen
 node scripts\test_auth.mjs       # inloggning + grind, 25 tester
+python scripts\check_login_ui.py # inloggningssidan i headless-webbläsare, 13 kontroller
 ```
+
+`check_login_ui.py` öppnar sidan i Edge/Chrome utan fönster och kollar visa/dölj-knappen,
+felläget (`?fel=1`) och att sidan inte får horisontell scroll i mobilbredd.
 
 `check_site.py` klagar om `COOKIE_NAME` eller `TOKEN_MESSAGE` skiljer sig mellan
 `login.js` och `gate.js`, eller om grinden slutat undanta inloggningssidans adresser.

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light dark">
   <title>Portodrac — inloggning</title>
   <style>
     :root {
@@ -79,7 +80,9 @@
       font-size: 0.9rem;
     }
 
-    .hint span {
+    .hint span,
+    .error span,
+    .help span {
       display: block;
     }
 
@@ -93,7 +96,8 @@
       color: var(--muted);
     }
 
-    input[type="password"] {
+    input[type="password"],
+    input[type="text"] {
       width: 100%;
       padding: 0.7rem 0.85rem;
       font: inherit;
@@ -104,9 +108,16 @@
     }
 
     input[type="password"]:focus-visible,
-    button:focus-visible {
+    input[type="text"]:focus-visible,
+    button:focus-visible,
+    .toggle:focus-visible {
       outline: 3px solid var(--accent);
       outline-offset: 2px;
+    }
+
+    input[aria-invalid="true"] {
+      border-color: var(--error);
+      box-shadow: 0 0 0 1px var(--error);
     }
 
     button {
@@ -124,6 +135,27 @@
 
     button:hover { filter: brightness(1.08); }
 
+    /* Liten textknapp: visa/dölj lösenordet */
+    .toggle {
+      width: auto;
+      margin: 0.5rem 0 0;
+      padding: 0.15rem 0;
+      background: none;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .toggle:hover { filter: none; text-decoration-thickness: 2px; }
+
+    .caps {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
     .error {
       margin: 0 0 1rem;
       padding: 0.6rem 0.8rem;
@@ -133,14 +165,27 @@
       font-size: 0.9rem;
     }
 
-    .error[hidden] { display: none; }
+    .error[hidden],
+    .caps[hidden] { display: none; }
+
+    .help {
+      margin: 1.5rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .help p { margin: 0; }
 
     .footer {
-      margin: 1.5rem 0 0;
+      margin: 1rem 0 0;
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-align: center;
     }
+
+    .footer span { display: block; }
   </style>
 </head>
 <body>
@@ -149,27 +194,86 @@
     <h1>Portodrac</h1>
     <p class="hint">
       <span>Ange lösenordet för att komma in.</span>
-      <span>Enter the password to continue.</span>
-    </p>
-
-    <p class="error" id="error" role="alert" hidden>
-      Fel lösenord — försök igen. / Wrong password, please try again.
+      <span lang="en">Enter the password to continue.</span>
     </p>
 
     <form method="POST" action="/.netlify/functions/login">
+      <p class="error" id="error" role="alert" hidden>
+        <span>Fel lösenord — försök igen.</span>
+        <span lang="en">Wrong password, please try again.</span>
+      </p>
+
       <label for="password">Lösenord / Password</label>
       <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button type="button" class="toggle" id="toggle" aria-controls="password" hidden>
+        Visa lösenord / Show password
+      </button>
+      <p class="caps" id="caps" hidden>
+        <span>Caps Lock är på.</span>
+        <span lang="en">Caps Lock is on.</span>
+      </p>
+
       <button type="submit">Logga in / Sign in</button>
     </form>
 
-    <p class="footer">Portodrac — privat familjesida / private family page</p>
+    <div class="help">
+      <p>
+        <span>Glömt lösenordet? Hör av dig till den i familjen som skickade länken.</span>
+        <span lang="en">Forgotten the password? Ask the family member who sent you the link.</span>
+      </p>
+    </div>
+
+    <p class="footer">
+      <span>Portodrac — privat familjesida</span>
+      <span lang="en">private family page</span>
+    </p>
   </main>
 
   <script>
-    if (new URLSearchParams(window.location.search).has("fel")) {
-      document.getElementById("error").hidden = false;
-      document.getElementById("password").select();
-    }
+    (function () {
+      var input = document.getElementById("password");
+      var toggle = document.getElementById("toggle");
+      var error = document.getElementById("error");
+      var caps = document.getElementById("caps");
+
+      /* "Visa lösenord" kräver JS — utan JS döljs knappen helt. */
+      toggle.hidden = false;
+
+      if (new URLSearchParams(window.location.search).has("fel")) {
+        error.hidden = false;
+        input.setAttribute("aria-invalid", "true");
+        input.setAttribute("aria-describedby", "error");
+        input.select();
+      }
+
+      toggle.addEventListener("click", function () {
+        var hidden = input.type === "password";
+        input.type = hidden ? "text" : "password";
+        toggle.textContent = hidden
+          ? "Dölj lösenord / Hide password"
+          : "Visa lösenord / Show password";
+        input.focus();
+        var end = input.value.length;
+        try {
+          input.setSelectionRange(end, end);
+        } catch (err) {
+          /* Vissa webbläsare tillåter inte det — fokus räcker. */
+        }
+      });
+
+      function showCaps(event) {
+        if (typeof event.getModifierState !== "function") {
+          return;
+        }
+        caps.hidden = !event.getModifierState("CapsLock");
+      }
+
+      input.addEventListener("keydown", showCaps);
+      input.addEventListener("keyup", showCaps);
+      input.addEventListener("blur", function () {
+        caps.hidden = true;
+      });
+    })();
   </script>
 </body>
 </html>
